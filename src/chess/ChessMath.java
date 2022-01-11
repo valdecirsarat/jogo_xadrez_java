@@ -23,7 +23,11 @@ public class ChessMath {
 		return mat;		
 	}
 	
-
+	public boolean[][] possibleMoves(ChessPosition sourceChessPosition){
+		Position position = sourceChessPosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
 	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
@@ -60,12 +64,7 @@ public class ChessMath {
 			throw new ChessException("A peca escolida não pode se mover para a posicao de destino");
 		}
 	}
-	
-	
-	
-	
-	
-	
+		
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
