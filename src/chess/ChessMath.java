@@ -47,6 +47,9 @@ public class ChessMath {
 			throw new ChessException("Erro não a peça na posição");
 			
 		}
+		if(!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("Nao existe movimento possives para a peça escolhida");
+		}
 	}
 	
 	
