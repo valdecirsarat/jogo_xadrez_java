@@ -60,7 +60,9 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println("Turn: " + chessMath.getTurn());
 		System.out.println("Esperando o jogador: " + chessMath.getCurrentPlayer());
-		
+		if(chessMath.getCheck()) {
+			System.out.println("CHECK!!");
+		}
 	}
 	
 	
