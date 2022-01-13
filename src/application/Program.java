@@ -15,11 +15,12 @@ import chess.ChessPosition;
 public class Program {
 
 	public static void main(String[] args) {
-		ChessMath chessMath = new ChessMath();
-		List<ChessPiece>captured = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
+		ChessMath chessMath = new ChessMath();
+		List<ChessPiece> captured = new ArrayList<>();
 		
-		while(true) {
+		
+		while(!chessMath.getCheckMate()) {
 			try {
 				UI.clearScreen();
 				
@@ -37,7 +38,7 @@ public class Program {
 				ChessPosition target = UI.readChessPosition(sc);
 				
 				ChessPiece capturedPiece = chessMath.performChessMove(source, target);
-				if(captured != null) {
+				if(capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
 			
@@ -52,6 +53,8 @@ public class Program {
 				sc.nextLine();
 			}
 		}
+		UI.clearScreen();
+		UI.printMatch(chessMath, captured);
 		
 	}
 		
