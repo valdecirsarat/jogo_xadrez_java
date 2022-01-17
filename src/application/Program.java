@@ -44,7 +44,12 @@ public class Program {
 			
 				if(chessMath.getPromoted() != null) {
 					System.out.print("Escolha a peca para promover (B/N/R/Q): ");
-					String type = sc.nextLine();
+					String type = sc.nextLine().toUpperCase();
+					
+					while(!type.equals("B") && type.equals("N") && type.equals("R") && type.equals("Q")) {
+						System.out.print("Valor invalido! Escolha a peca para promover (B/N/R/Q): ");
+						type = sc.nextLine().toUpperCase();
+					}
 					chessMath.replacePomotedPiece(type);
 				}
 			}
