@@ -42,7 +42,11 @@ public class Program {
 					captured.add(capturedPiece);
 				}
 			
-			
+				if(chessMath.getPromoted() != null) {
+					System.out.print("Escolha a peca para promover (B/N/R/Q): ");
+					String type = sc.nextLine();
+					chessMath.replacePomotedPiece(type);
+				}
 			}
 			catch(ChessException e) {
 				System.out.println(e.getMessage());
